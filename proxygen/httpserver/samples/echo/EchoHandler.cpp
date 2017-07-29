@@ -28,7 +28,7 @@ void EchoHandler::onRequest(std::unique_ptr<HTTPMessage> headers) noexcept {
 void EchoHandler::onBody(std::unique_ptr<folly::IOBuf> body) noexcept {
   if (body_) {
     body_->prependChain(std::move(body));
-  } else {
+  } else {    
     body_ = std::move(body);
   }
 }
